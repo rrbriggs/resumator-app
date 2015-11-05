@@ -1,0 +1,41 @@
+<h1> <%= @person_name %> </h1>
+<% if @educations.any? %>
+<h2>Education</h2>
+<% end %>
+<% @educations.each do |edu| %>
+<div>
+  <%= edu.school %> | <%= edu.award %> <br />
+  <%= edu.location %> | <%= edu.date %> <br />
+  <%= edu.description %>
+  <% end %>
+</div>
+
+<% if @experiences.any? %>
+<h2>Work Experience</h2>
+<% end %>
+<% @experiences.each do |exp| %>
+<div>
+  <%= exp.title %> | <%= exp.company %> | <%= exp.date %> <br />
+  <%= exp.description %>
+  <% end %>
+</div>
+
+<% if @activities.any? %>
+  <h2>Activities and Projects</h2>
+<% end %>
+<% @activities.each do |act| %>
+  <div>
+    <%= act.date %> | <%= act.title %> | <%= act.description %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @qualifications.any? %>
+  <h2>Qualifications</h2>
+<% end %>
+<% @qualifications.each do |qual| %>
+  <div>
+    <%= qual.description %>
+    <% end %>
+  </div>
+<% end %>
