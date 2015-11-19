@@ -14,7 +14,7 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences/new
   def new
-    @experience = Experience.new
+    @experience = current_user.experiences.build
   end
 
   # GET /experiences/1/edit
@@ -24,7 +24,7 @@ class ExperiencesController < ApplicationController
   # POST /experiences
   # POST /experiences.json
   def create
-    @experience = Experience.new(experience_params)
+    @experience = current_user.experiences.build(experience_params)
 
     respond_to do |format|
       if @experience.save

@@ -15,15 +15,17 @@
 
   <tbody>
     <% @experiences.each do |experience| %>
-      <tr>
-        <td><%= experience.date %></td>
-        <td><%= experience.title %></td>
-        <td><%= experience.description %></td>
-        <td><%= experience.company %></td>
-        <td><%= link_to 'Show', experience %></td>
-        <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
-        <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%if experience.user == current_user %>
+        <tr>
+          <td><%= experience.date %></td>
+          <td><%= experience.title %></td>
+          <td><%= experience.description %></td>
+          <td><%= experience.company %></td>
+          <td><%= link_to 'Show', experience %></td>
+          <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
+          <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

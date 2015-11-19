@@ -1,41 +1,36 @@
-<h1> <%= @person_name %> </h1>
-<% if @educations.any? %>
-  <h2>Education</h2>
-<% end %>
+<h1> <%= current_user.name %> </h1>
+
 <div>
-  <% @educations.each do |edu| %>
+  <% if @educations.find_by_id(current_user) %>
+    <h2>Education</h2>
+    <% edu = @educations.find_by_id(current_user) %>
     <%= edu.school %> | <%= edu.award %> <br />
     <%= edu.location %> | <%= edu.date %> <br />
     <%= edu.description %>
-    <% end %>
+  <% end %>
 </div>
 
-<% if @experiences.any? %>
-  <h2>Work Experience</h2>
-<% end %>
 <div>
-  <% @experiences.each do |exp| %>
+  <% if @experiences.find_by_id(current_user) %>
+    <h2>Work Experience</h2>
+    <% exp = @experiences.find_by_id(current_user) %>
     <%= exp.title %> | <%= exp.company %> | <%= exp.date %> <br />
     <%= exp.description %>
   <% end %>
 </div>
 
-<% if @activities.any? %>
-  <h2>Activities and Projects</h2>
-<% end %>
 <div>
-  <% @activities.each do |act| %>
+  <% if @activities.find_by_id(current_user) %>
+    <h2>Activities and Projects</h2>
+    <% act = @activities.find_by_id(current_user) %>
     <%= act.date %> | <%= act.title %> | <%= act.description %>
   <% end %>
-  </div>
-
-
-<% if @qualifications.any? %>
-  <h2>Qualifications</h2>
-<% end %>
+</div>
 
 <div>
-  <% @qualifications.each do |qual| %>
+  <% if @activities.find_by_id(current_user) %>
+    <h2>Qualifications</h2>
+    <% qual = @qualifications.find_by_id(current_user) %>
     <%= qual.description %>
   <% end %>
 </div>

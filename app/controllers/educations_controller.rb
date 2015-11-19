@@ -14,7 +14,7 @@ class EducationsController < ApplicationController
 
   # GET /educations/new
   def new
-    @education = Education.new
+    @education = current_user.educations.build
   end
 
   # GET /educations/1/edit
@@ -24,7 +24,7 @@ class EducationsController < ApplicationController
   # POST /educations
   # POST /educations.json
   def create
-    @education = Education.new(education_params)
+    @education = current_user.educations.build(education_params)
 
     respond_to do |format|
       if @education.save

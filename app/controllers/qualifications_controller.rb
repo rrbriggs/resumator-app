@@ -14,7 +14,7 @@ class QualificationsController < ApplicationController
 
   # GET /qualifications/new
   def new
-    @qualification = Qualification.new
+    @qualification = current_user.qualifications.build
   end
 
   # GET /qualifications/1/edit
@@ -24,7 +24,7 @@ class QualificationsController < ApplicationController
   # POST /qualifications
   # POST /qualifications.json
   def create
-    @qualification = Qualification.new(qualification_params)
+    @qualification = current_user.qualifications.build(qualification_params)
 
     respond_to do |format|
       if @qualification.save

@@ -14,7 +14,9 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new
+    #@activity = Activity.new
+    @activity = current_user.activities.build
+    
   end
 
   # GET /activities/1/edit
@@ -24,7 +26,7 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
-    @activity = Activity.new(activity_params)
+    @activity = current_user.activities.build(activity_params)
 
     respond_to do |format|
       if @activity.save
