@@ -65,6 +65,7 @@ class EducationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_education
       @education = Education.find(params[:id])
+      ownership_check(@education)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

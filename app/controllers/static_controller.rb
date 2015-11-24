@@ -3,6 +3,7 @@ class StaticController < ApplicationController
 
   def landing
     @qualifications = Qualification.all
+    #qualifications = current_user.qualifications.all
     @experiences = Experience.all
     @educations = Education.all
     @activities = Activity.all

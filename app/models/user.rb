@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
   has_many :qualifications
 
   def owns?(entity)
-    user = User.all
-    user.where(:user_id => entity).exists?
+    experiences.include?(entity) or activities.include?(entity) or educations.include?(entity) or qualifications.include?(entity)
   end
 
 end
