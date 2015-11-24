@@ -6,7 +6,6 @@ class StaticController < ApplicationController
     @experiences = Experience.all
     @educations = Education.all
     @activities = Activity.all
-    @person_name = "Mike Jones"
     render "resume"
   end
   def dashboard

@@ -1,4 +1,6 @@
 <h1> <%= current_user.name %> </h1>
+<%= current_user.address %><br />
+<% current_user.phone %>
 
 <div>
   <% if @educations.find_by_id(current_user) %>

@@ -2,26 +2,26 @@
 <html>
 <head>
   <title>Resumatorv1</title>
+  <%= stylesheet_link_tag 'maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel= 'stylesheet' %>
+  <%= javascript_include_tag 'maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div id="user-nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>.
-    <%= link_to "View resume", root_url %>
-    <%= link_to "Edit profile", edit_user_registration_path %>
-    <%= link_to "Edit resume", dashboard_path %>
-    <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <% end %>
-</div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div id="user-nav">
+    <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>.
+      <%= link_to "View resume", root_url %>
+      <%= link_to "Edit profile", edit_user_registration_path %>
+      <%= link_to "Edit resume", dashboard_path %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+      <% end %>
+  </div>
 
-
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>
