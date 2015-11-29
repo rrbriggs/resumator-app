@@ -4,7 +4,7 @@ class QualificationsController < ApplicationController
   # GET /qualifications
   # GET /qualifications.json
   def index
-    @qualifications = Qualification.all
+    @qualifications = current_user.qualifications.all
   end
 
   # GET /qualifications/1

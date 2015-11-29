@@ -4,7 +4,7 @@ class EducationsController < ApplicationController
   # GET /educations
   # GET /educations.json
   def index
-    @educations = Education.all
+    @educations = current_user.educations.all
   end
 
   # GET /educations/1

@@ -15,18 +15,16 @@
 
   <tbody>
     <% @educations.each do |education| %>
-      <%if education.user == current_user %>
-        <tr>
-          <td><%= education.date %></td>
-          <td><%= education.award %></td>
-          <td><%= education.description %></td>
-          <td><%= education.school %></td>
-          <td><%= education.location %></td>
-          <td><%= link_to 'Show', education %></td>
-          <td><%= link_to 'Edit', edit_education_path(education) %></td>
-          <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= education.date %></td>
+        <td><%= education.award %></td>
+        <td><%= education.description %></td>
+        <td><%= education.school %></td>
+        <td><%= education.location %></td>
+        <td><%= link_to 'Show', education %></td>
+        <td><%= link_to 'Edit', edit_education_path(education) %></td>
+        <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
