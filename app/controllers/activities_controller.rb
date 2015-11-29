@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     #@activities = Activity.all
-     @activities = current_user.activities.all
+     @activities = current_user.activities
   end
 
   # GET /activities/1

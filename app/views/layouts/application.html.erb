@@ -6,23 +6,52 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+		$(document).ready(function(){
+			$(document.body).css('padding-top', $('#topnavbar').height());
+			$(window).resize(function(){
+				$(document.body).css('padding-top', $('#topnavbar').height());
+			});
+		});
+	</script>
 </head>
 <body style='background-color: #fdebc6'>
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div id="user-nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>.
-        <div class="btn-group pull-right" role="group" aria-label="...">
-          <%= link_to "View resume", root_url, class: "btn btn-info" %>
-          <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-info" %>
-          <%= link_to "Edit resume", dashboard_path, class: "btn btn-info" %>
-          <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
-        </div>
-      <% end %>
+  <!-- BEGIN NAV -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="topnavbar">
+		<div class="container-fluid">
+			<!-- LOGO -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+					<span class="icon-bar"></span><!-- build navbar button -->
+					<span class="icon-bar"></span><!-- build navbar button -->
+					<span class="icon-bar"></span><!-- build navbar button -->
+				</button>
+        <% if user_signed_in? %>
+          <%= link_to "Resumator: #{current_user.email}", root_url, class: "navbar-brand" %>
+        <% end %>
+			</div>
+
+			<!-- MENU ITEMS -->
+			<div class="collapse navbar-collapse" id="mainNavBar">
+				<ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "View resume", root_url %></li>
+            <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+            <li><%= link_to "Edit resume", dashboard_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+          <% end %>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+  <!-- END NAV -->
+  <div class="container text-center">
+    <div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </div>
-  <%= yield %>
+    <%= yield %>
   </div>
   <script src="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js"></script>
 </body>

@@ -2,18 +2,18 @@ class StaticController < ApplicationController
   before_filter :authenticate_user!
 
   def landing
-    @qualifications = Qualification.all
-    #qualifications = current_user.qualifications.all
-    @experiences = Experience.all
-    @educations = Education.all
-    @activities = Activity.all
+    @qualifications = current_user.qualifications.all
+    #qualifications = Qualification.all
+    @experiences = current_user.experiences.all
+    @educations = current_user.educations.all
+    @activities = current_user.activities.all
     render "resume"
   end
   def dashboard
-    @qualifications = Qualification.all
-    @experiences = Experience.all
-    @educations = Education.all
-    @activities = Activity.all
+    @qualifications = current_user.qualifications.all
+    @experiences = current_user.experiences.all
+    @educations = current_user.educations.all
+    @activities = current_user.activities.all
   end
 
 end
