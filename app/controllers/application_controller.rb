@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def ownership_check!(entity)
-    security)violation unless current_user.owns?(entity)
+    security_violation unless current_user.owns?(entity)
   end
   def security_violation
-    redirect_to dashboard_path, notice: "Hey! Stop that."
+    redirect_to dashboard_path, notice: "You are trying to edit someone elses account! Stop that!"
   end
 
   protected

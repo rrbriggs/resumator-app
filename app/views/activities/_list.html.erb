@@ -14,7 +14,6 @@
 
   <tbody>
     <% @activities.each do |activity| %>
-      <%if activity.user == current_user %>
         <tr>
           <td><%= activity.date %></td>
           <td><%= activity.title %></td>
@@ -23,7 +22,6 @@
           <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
           <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
