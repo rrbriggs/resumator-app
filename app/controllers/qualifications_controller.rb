@@ -42,7 +42,7 @@ class QualificationsController < ApplicationController
   def update
     respond_to do |format|
       if @qualification.update(qualification_params)
-        format.html { redirect_to @qualification, notice: 'Qualification was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Qualification was successfully updated.' }
         format.json { render :show, status: :ok, location: @qualification }
       else
         format.html { render :edit }
