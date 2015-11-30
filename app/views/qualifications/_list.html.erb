@@ -1,27 +1,23 @@
 
-
-<h1>Listing Qualifications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @qualifications.each do |qualification| %>
-      <tr>
-        <td><%= qualification.description %></td>
-        <td><%= link_to 'Show', qualification %></td>
-        <td><%= link_to 'Edit', edit_qualification_path(qualification) %></td>
-        <td><%= link_to 'Destroy', qualification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container text-left">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Qualifications</h2>
+    </div>
+    <% @qualifications.each do |qual| %>
+      <div class="col-md-8 col-md-offset-2">
+        <ul style="list-style-type: circle">
+          <li style="font-family: Helvetica"><%= qual.description %>
+            <div class="btn-group btn-group-xs" role="group" aria-label="...">
+              <%= link_to 'Edit', edit_qualification_path(qual), class: "btn btn-default" %>
+              <%= link_to 'Destroy', qual, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div></li>
+        </ul>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Qualification', new_qualification_path %>
+<%= link_to 'New Qualification', new_qualification_path, class: "btn btn-default" %>

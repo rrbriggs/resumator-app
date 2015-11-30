@@ -9,7 +9,7 @@
 	</div>
 </div>
 <div class="container text-left">
-	<% if @educations.find_by_id(current_user) %>
+  <% if @educations.exists? %>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<h2>Education</h2>
@@ -22,7 +22,7 @@
 	<% end %>
 </div>
 <div class="container text-left">
-  <% if @experiences.find_by_id(current_user) %>
+  <% if @experiences.exists? %>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h2>Work Experience</h2>
@@ -46,7 +46,7 @@
     </div>
   <% end %>
 
-  <% if @activities.find_by_id(current_user) %>
+  <% if @activities.exists? %>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h2>Activities and Projects</h2>
@@ -67,7 +67,7 @@
     </div>
   <% end %>
 
-  <% if @qualifications.find_by_id(current_user) %>
+  <% if @qualifications.exists? %>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h2>Qualifications</h2>
