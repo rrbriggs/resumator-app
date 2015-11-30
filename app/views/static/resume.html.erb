@@ -8,37 +8,77 @@
 		</div>
 	</div>
 </div>
-<div>
-  <% if @educations.find_by_id(current_user) %>
-    <h2>Education</h2>
-    <% edu = @educations.find_by_id(current_user) %>
-    <%= edu.school %> | <%= edu.award %> <br />
-    <%= edu.location %> | <%= edu.date %> <br />
-    <%= edu.description %>
-  <% end %>
+<div class="container text-left">
+	<% if @educations.find_by_id(current_user) %>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2>Education</h2>
+				<% @educations.each do |edu| %>
+					<h3><%= edu.school %></h3>
+					<h4><%= edu.award %></h4>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 </div>
-
-<div>
+<div class="container text-left">
   <% if @experiences.find_by_id(current_user) %>
-    <h2>Work Experience</h2>
-    <% exp = @experiences.find_by_id(current_user) %>
-    <%= exp.title %> | <%= exp.company %> | <%= exp.date %> <br />
-    <%= exp.description %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Work Experience</h2>
+      </div>
+      <% @experiences.each do |exp| %>
+        <div class="col-md-8 col-md-offset-2">
+          <h3><%= exp.company %></h3>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+          <h4><%= exp.title %></h4>
+        </div>
+        <div class="col-md-4">
+          <h4><%= exp.date %></h4>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <ul style="list-style-type: circle">
+            <li style="font-family: Helvetica"><%= exp.description %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</div>
 
-<div>
   <% if @activities.find_by_id(current_user) %>
-    <h2>Activities and Projects</h2>
-    <% act = @activities.find_by_id(current_user) %>
-    <%= act.date %> | <%= act.title %> | <%= act.description %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Activities and Projects</h2>
+      </div>
+      <% @activities.each do |act| %>
+          <div class="col-md-6 col-md-offset-2">
+            <h4><%= act.title %></h4>
+          </div>
+          <div class="col-md-4">
+            <h4><%= act.date %></h4>
+          </div>
+          <div class="col-md-8 col-md-offset-2">
+            <ul style="list-style-type: circle">
+              <li style="font-family: Helvetica"><%= act.description %></li>
+            </ul>
+          </div>
+      <% end %>
+    </div>
   <% end %>
-</div>
 
-<div>
-  <% if @activities.find_by_id(current_user) %>
-    <h2>Qualifications</h2>
-    <% qual = @qualifications.find_by_id(current_user) %>
-    <%= qual.description %>
+  <% if @qualifications.find_by_id(current_user) %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Qualifications</h2>
+      </div>
+      <% @qualifications.each do |qual| %>
+        <div class="col-md-8 col-md-offset-2">
+          <ul style="list-style-type: circle">
+            <li style="font-family: Helvetica"><%= qual.description %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
