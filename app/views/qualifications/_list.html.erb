@@ -9,8 +9,8 @@
         <ul style="list-style-type: circle">
           <li style="font-family: Helvetica"><%= qual.description %>
             <div class="btn-group btn-group-xs" role="group" aria-label="...">
-              <%= link_to 'Edit', edit_qualification_path(qual), class: "btn btn-default" %>
-              <%= link_to 'Destroy', qual, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              <%= link_to ' Edit', edit_qualification_path(qual), class: "btn btn-default fa fa-pencil-square-o" %>
+              <%= link_to ' Delete', qual, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-trash" %>
             </div></li>
         </ul>
       </div>
@@ -20,4 +20,4 @@
 
 <br>
 
-<%= link_to 'New Qualification', new_qualification_path, class: "btn btn-default" %>
+<%= link_to ' New Qualification', new_qualification_path, class: "btn btn-default fa fa-plus-square-o fa-lg" %>
