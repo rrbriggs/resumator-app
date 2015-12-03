@@ -7,7 +7,7 @@
 				<% @educations.each do |edu| %>
 					<h3><%= edu.school %>
             <div class="btn-group btn-group-xs" role="group" aria-label="...">
-              <%= link_to ' Edit', edit_education_path(edu), class: "btn btn-default fa fa-pencil-square-o" %>
+              <%= link_to ' Edit', edit_education_path(edu), class: "btn btn-success fa fa-pencil-square-o" %>
               <%= link_to ' Delete', edu, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-trash" %>
             </div></h3>
 					<h4><%= edu.award %></h4>
@@ -20,4 +20,4 @@
 
 <br>
 
-<%= link_to ' New Education', new_education_path, class: "btn btn-success fa fa-plus-square-o fa-lg" %>
+<%= link_to ' New Education', new_education_path, class: "btn btn-default fa fa-plus-square-o fa-lg" %>
