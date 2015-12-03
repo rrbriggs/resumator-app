@@ -28,7 +28,7 @@ class QualificationsController < ApplicationController
 
     respond_to do |format|
       if @qualification.save
-        format.html { redirect_to @qualification, notice: 'Qualification was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Qualification was successfully created.' }
         format.json { render :show, status: :created, location: @qualification }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class QualificationsController < ApplicationController
   def destroy
     @qualification.destroy
     respond_to do |format|
-      format.html { redirect_to qualifications_url, notice: 'Qualification was successfully destroyed.' }
+      format.html { redirect_to dashboard_path, notice: 'Qualification was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

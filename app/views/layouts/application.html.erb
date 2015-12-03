@@ -4,6 +4,7 @@
   <title>Resumatorv1</title>
   <link href= "//maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css", rel= 'stylesheet'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script>
@@ -27,13 +28,13 @@
 					<span class="icon-bar"></span><!-- build navbar button -->
 				</button>
         <% if user_signed_in? %>
-          <%= link_to "Resumator: #{current_user.email}", root_url, class: "navbar-brand" %>
+          <span style="font-family: 'Open Sans', sans-serif;"><%= link_to "Resumator: #{current_user.email}", root_url, class: "navbar-brand" %></span>
         <% end %>
 			</div>
 
 			<!-- MENU ITEMS -->
 			<div class="collapse navbar-collapse" id="mainNavBar">
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right" style="font-family: 'Open Sans', sans-serif;">
           <% if user_signed_in? %>
             <li><%= link_to "View resume", root_url %></li>
             <li><%= link_to "Edit profile", edit_user_registration_path %></li>
