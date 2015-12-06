@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App created for Advanced Web Applications (MIS 4397) at the University of Houston, December 2015
 
-Things you may want to cover:
+* Ruby version - 2.1.5p273
 
-* Ruby version
+* Rails version - 4.2.3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database - Sqlite3 for dev, PostgreSQL for production
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
